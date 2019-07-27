@@ -9,11 +9,15 @@ import android.widget.TextView;
 
 import com.croods.eventmanagement.R;
 import com.croods.eventmanagement.model.CustomerListResponse;
+import com.croods.eventmanagement.model.EventListResponse;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class CustomerListAdapter extends BaseAdapter {
     private List<CustomerListResponse> customerList;
+    private List<CustomerListResponse> arraylist;
     private Context ctx;
     private LayoutInflater inflater = null;
 
@@ -22,6 +26,8 @@ public class CustomerListAdapter extends BaseAdapter {
         this.ctx = ctx;
         inflater = (LayoutInflater) ctx
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        arraylist = new ArrayList<>();
+        arraylist.addAll(customerList);
     }
 
     @Override
@@ -61,6 +67,26 @@ public class CustomerListAdapter extends BaseAdapter {
         holder.lbl_ccity.setText("  "+customerList.get(position).getCityName());
 
         return view;
+    }
+
+    // Filter Class
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        customerList.clear();
+        if (charText.length() == 0) {
+            customerList.addAll(arraylist);
+        }
+        else
+        {
+            for (CustomerListResponse wp : arraylist)
+            {
+                if (wp.getCompanyName().toLowerCase(Locale.getDefault()).contains(charText))
+                {
+                    customerList.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     private class ViewHolder {

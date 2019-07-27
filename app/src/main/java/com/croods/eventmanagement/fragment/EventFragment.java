@@ -1,11 +1,14 @@
 package com.croods.eventmanagement.fragment;
 
 import android.app.Dialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,10 +16,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.PopupMenu;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.croods.eventmanagement.R;
@@ -67,6 +73,9 @@ public class EventFragment extends Fragment {
 
     private TextView lbl_rtow, lbl_rtoe, lbl_stoe;
     private FloatingActionButton btn_create_event;
+
+    private SearchView searchView = null;
+    private SearchView.OnQueryTextListener queryTextListener;
 
     public EventFragment() {
         // Required empty public constructor
@@ -126,6 +135,46 @@ public class EventFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.event_status_menu, menu);
+        MenuItem searchItem = menu.findItem(R.id.menu_search);
+        //  searchItem.collapseActionView();
+
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+
+
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+
+            ImageView icon = searchView.findViewById(androidx.appcompat.R.id.search_button);
+
+            icon.setImageDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.ic_search_black_24dp));
+
+            searchView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+            searchView.setQueryHint(Html.fromHtml("<font color = #ffffff>" + getResources().getString(R.string.hintSearchMess) + "</font>"));
+
+        }
+        if (searchView != null) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+
+            queryTextListener = new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    Log.i("onQueryTextChange", newText);
+
+                    adapter.filter(newText);
+                    adapter.notifyDataSetChanged();
+
+                    return true;
+                }
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    Log.i("onQueryTextSubmit", query);
+
+                    return true;
+                }
+            };
+            searchView.setOnQueryTextListener(queryTextListener);
+        }
+
 
     }
 
@@ -179,6 +228,7 @@ public class EventFragment extends Fragment {
 
             popup.show();//showing popup menu
         }
+        searchView.setOnQueryTextListener(queryTextListener);
         return super.onOptionsItemSelected(item);
     }
 

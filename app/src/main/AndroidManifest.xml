@@ -20,7 +20,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".activity.ActiveEventActivity"></activity>
+        <activity android:name=".activity.ProductDetailActivity"></activity>
+        <activity android:name=".activity.ActiveEventActivity" />
         <activity android:name=".activity.CreateCustomerActivity" />
         <activity android:name=".activity.ProductReceivedActivity" />
         <activity

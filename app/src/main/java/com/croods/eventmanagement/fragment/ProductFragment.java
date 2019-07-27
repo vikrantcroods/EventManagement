@@ -1,7 +1,9 @@
 package com.croods.eventmanagement.fragment;
 
+import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,18 +18,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.croods.eventmanagement.R;
+import com.croods.eventmanagement.activity.CustomerDetailActivity;
+import com.croods.eventmanagement.activity.ProductDetailActivity;
+import com.croods.eventmanagement.activity.ReceivedToEventActivity;
+import com.croods.eventmanagement.activity.ReceivedToWarehouseActivity;
+import com.croods.eventmanagement.activity.SendMaterialActivity;
 import com.croods.eventmanagement.adapter.ProductListAdapter;
+import com.croods.eventmanagement.adapter.ProductStockListAdapter;
 import com.croods.eventmanagement.api.APIInterface;
 import com.croods.eventmanagement.api.Common;
 import com.croods.eventmanagement.api.DataStorage;
 import com.croods.eventmanagement.api.UtilApi;
+import com.croods.eventmanagement.model.ProductDetailResponse;
 import com.croods.eventmanagement.model.ProductListResponse;
+import com.croods.eventmanagement.model.ProductStockDetailList;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.util.ArrayList;
@@ -68,6 +80,11 @@ public class ProductFragment extends Fragment {
 
     private SearchView searchView = null;
     private SearchView.OnQueryTextListener queryTextListener;
+
+    private Dialog dialog;
+    private  TextView lbl_tqty,lbl_cqty;
+    private ListView lst_product_detail;
+    private List<ProductStockDetailList> psList;
 
     public ProductFragment() {
         // Required empty public constructor
@@ -113,11 +130,20 @@ public class ProductFragment extends Fragment {
         progressHUD.show();
         handler.postDelayed(() ->  getAllProductList(tokenType+" "+token), 2000);
 
-       /*lst_product.setOnItemClickListener((adapterView, view, i, l) -> {
-            Intent cdetail = new Intent(ctx, CustomerDetailActivity.class);
-            cdetail.putExtra("contactId",productList.get(i).getContactId());
-            startActivity(cdetail);
-        });*/
+       lst_product.setOnItemClickListener((adapterView, view, i, l) -> {
+
+           if (productList.get(i).getOutquantity()!=0)
+           {
+               Intent pIntent = new Intent(ctx,ProductDetailActivity.class);
+               pIntent.putExtra("productId",productList.get(i).getProductId());
+               startActivity(pIntent);
+           }
+           else
+           {
+               Toast.makeText(ctx,"No  product detail because OUT quentity is 0",Toast.LENGTH_LONG).show();
+           }
+
+        });
 
 
         return  root;
@@ -169,8 +195,6 @@ public class ProductFragment extends Fragment {
         }
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -212,6 +236,46 @@ public class ProductFragment extends Fragment {
             }
         });
     }
+
+
+
+    private void showProductDetailDialog(int position) {
+        dialog = new Dialog(ctx, R.style.AlertDialogCustom);
+        dialog.setTitle("Product Detail : " + productList.get(position).getName());
+        dialog.setContentView(R.layout.product_detail_dialog);
+
+        lbl_cqty = (TextView) dialog.findViewById(R.id.lbl_cqty);
+        lbl_tqty = (TextView) dialog.findViewById(R.id.lbl_tqty);
+        lst_product_detail = (ListView) dialog.findViewById(R.id.lst_product_detail);
+        psList = new ArrayList<>();
+
+        apiInterface.getProductDetail(tokenType+" "+token,productList.get(position).getProductId()).enqueue(new Callback<ProductDetailResponse>() {
+            @Override
+            public void onResponse(Call<ProductDetailResponse> call, Response<ProductDetailResponse> response) {
+
+                if (response.body()!=null)
+                {
+                    lbl_cqty.setText(response.body().getCurrentQty());
+                    lbl_tqty.setText(response.body().getTotalQty());
+
+                    ProductStockListAdapter adapter = new ProductStockListAdapter(response.body().getEvents(),ctx);
+                    lst_product_detail.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProductDetailResponse> call, Throwable t) {
+
+            }
+        });
+
+        dialog.show();
+
+    }
+
+
 
 
     @Override

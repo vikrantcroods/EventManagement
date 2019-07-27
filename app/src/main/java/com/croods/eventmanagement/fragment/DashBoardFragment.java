@@ -29,14 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link DashBoardFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link DashBoardFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class DashBoardFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,17 +50,13 @@ public class DashBoardFragment extends Fragment {
     @BindView(R.id.lbl_tstock)
     TextView lbl_tstock;
 
- /*   @BindView(R.id.lbl_tsupplier)
-    TextView lbl_tsupplier;*/
-
-
     private APIInterface apiInterface;
 
     private KProgressHUD progressHUD;
 
     private DataStorage storage;
-    private String token,tokenType;
-    private  Context ctx;
+    private String token, tokenType;
+    private Context ctx;
 
 
     // TODO: Rename and change types of parameters
@@ -79,14 +68,6 @@ public class DashBoardFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DashBoardFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static DashBoardFragment newInstance(String param1, String param2) {
         DashBoardFragment fragment = new DashBoardFragment();
@@ -108,22 +89,23 @@ public class DashBoardFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
-        View root =  inflater.inflate(R.layout.fragment_dash_board, container, false);
+        View root = inflater.inflate(R.layout.fragment_dash_board, container, false);
 
-        ButterKnife.bind(this,root);
+        ButterKnife.bind(this, root);
 
         apiInterface = UtilApi.getAPIService();
         progressHUD = Common.progressBar(ctx);
-        storage = new DataStorage("loginPref",ctx);
+        storage = new DataStorage("loginPref", ctx);
 
-        token = (String)storage.read("token",DataStorage.STRING);
-        tokenType = (String)storage.read("tokenType",DataStorage.STRING);
+        token = (String) storage.read("token", DataStorage.STRING);
+        tokenType = (String) storage.read("tokenType", DataStorage.STRING);
 
         final Handler handler = new Handler();
         progressHUD.show();
-        handler.postDelayed(() ->  getAllDashTotal(tokenType+" "+token), 2000);
+        handler.postDelayed(() -> getAllDashTotal(tokenType + " " + token), 2000);
 
 
         card_event.setOnClickListener(view -> {
@@ -133,30 +115,25 @@ public class DashBoardFragment extends Fragment {
 
         card_product.setOnClickListener(view -> {
             Intent i = new Intent(ctx, DashBoardActivity.class);
-            i.putExtra("loadf",5);
+            i.putExtra("loadf", 5);
             startActivity(i);
         });
 
-        return  root;
+        return root;
     }
 
 
-    private void getAllDashTotal(String auth)
-    {
+    private void getAllDashTotal(String auth) {
         apiInterface.getDashTotal(auth).enqueue(new Callback<DashModel>() {
             @Override
             public void onResponse(Call<DashModel> call, Response<DashModel> response) {
-                if (response.body()!=null)
-                {
+                if (response.body() != null) {
                     lbl_tevent.setText(response.body().getTotalActiveEvents());
                     lbl_tproduct.setText(response.body().getTotalProduct());
                     lbl_tstock.setText(response.body().getTotalQty());
-                  //  lbl_tsupplier.setText(response.body().getTotalSuppliers());
 
                     progressHUD.dismiss();
-                }
-                else
-                {
+                } else {
                     progressHUD.dismiss();
                 }
             }

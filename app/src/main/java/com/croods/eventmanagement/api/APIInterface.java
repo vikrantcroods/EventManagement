@@ -11,6 +11,7 @@ import com.croods.eventmanagement.model.MaterialOutWordEventList;
 import com.croods.eventmanagement.model.MaterialProductModel;
 import com.croods.eventmanagement.model.MaterialReceivedListResponse;
 import com.croods.eventmanagement.model.MaterialSendListResponse;
+import com.croods.eventmanagement.model.ProductDetailResponse;
 import com.croods.eventmanagement.model.ProductListResponse;
 import com.croods.eventmanagement.model.ReceivedMaterialRequest;
 import com.croods.eventmanagement.model.ReceivedMaterialToEventRequest;
@@ -103,5 +104,8 @@ public interface APIInterface {
 
     @POST("customer")
     Call<CustomerAddRequest> saveCustomer(@Header("Authorization") String auth, @Body CustomerAddRequest request);
+
+    @GET("products/transactions/{id}")
+    Call<ProductDetailResponse> getProductDetail(@Header("Authorization") String auth, @Path("id") int id);
 
 }
