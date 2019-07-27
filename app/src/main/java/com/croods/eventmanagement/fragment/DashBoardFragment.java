@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.croods.eventmanagement.R;
 import com.croods.eventmanagement.activity.ActiveEventActivity;
+import com.croods.eventmanagement.activity.DashBoardActivity;
 import com.croods.eventmanagement.api.APIInterface;
 import com.croods.eventmanagement.api.Common;
 import com.croods.eventmanagement.api.DataStorage;
@@ -46,6 +47,9 @@ public class DashBoardFragment extends Fragment {
 
     @BindView(R.id.card_event)
     CardView card_event;
+
+    @BindView(R.id.card_product)
+    CardView card_product;
 
     @BindView(R.id.lbl_tproduct)
     TextView lbl_tproduct;
@@ -126,6 +130,13 @@ public class DashBoardFragment extends Fragment {
             Intent i = new Intent(ctx, ActiveEventActivity.class);
             startActivity(i);
         });
+
+        card_product.setOnClickListener(view -> {
+            Intent i = new Intent(ctx, DashBoardActivity.class);
+            i.putExtra("loadf",5);
+            startActivity(i);
+        });
+
         return  root;
     }
 
