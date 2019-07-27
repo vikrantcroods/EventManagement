@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_laptop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/home_cardview"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/color_yellow">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/text_margin"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/setting_top">
+
+            <TextView
+                android:id="@+id/lbl_ejobcode"
+                style="@style/miduam_font_two"
+                android:textColor="@color/color_reschedule_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/home_text_top" />
+
+            <TextView
+                android:id="@+id/lbl_ecname"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_ejobcode"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:gravity="fill"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/img_d"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/event"
+                android:layout_below="@+id/lbl_ecname"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"/>
+            <TextView
+                android:id="@+id/date"
+                style="@style/regular_font"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_ecname"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/margin_six_dp"
+                android:layout_toEndOf="@+id/img_d"
+                android:gravity="fill"
+                android:text="Event Date :"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/img_d2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/event"
+                android:layout_below="@+id/img_d"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/lbl_edate"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_ecname"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:layout_toEndOf="@+id/date"
+                android:gravity="fill"
+                android:textSize="16sp"
+                android:text="01/02/2019"/>
+
+            <TextView
+                android:id="@+id/workdate"
+                style="@style/regular_font"
+                android:textColor="@color/black"
+                android:layout_toEndOf="@+id/img_d2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_edate"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:gravity="fill"
+                android:text="WorkStart Date : "
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/lbl_eworkdate"
+                style="@style/regular_font"
+                android:layout_toEndOf="@+id/workdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_edate"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:gravity="fill"
+                android:text="01/02/2019"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/lbl_inquantity"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_eworkdate"
+                android:layout_marginStart="@dimen/setting_top"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:gravity="fill"
+                android:text=" 5 Qty"
+                android:drawableStart="@drawable/ic_in"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/lbl_outquantity"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/lbl_inquantity"
+                android:layout_below="@+id/lbl_eworkdate"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:gravity="fill"
+                android:text=" 5 Qty"
+                android:drawableStart="@drawable/ic_out"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

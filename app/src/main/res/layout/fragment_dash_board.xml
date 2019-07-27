@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.DashBoardFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/home_cardview"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@color/color_customer"
+        app:cardBackgroundColor="@color/color_customer">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/text_margin"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/setting_top">
+
+            <TextView
+                android:id="@+id/lbl_customer"
+                style="@style/miduam_font_two"
+                android:textColor="@color/color_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:text="Event"/>
+
+            <TextView
+                android:id="@+id/lbl_tevent"
+                style="@style/miduam_font_two"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:textColor="@color/color_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+
+
+            <TextView
+                android:id="@+id/lbl_ecname"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_tevent"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:gravity="fill"
+                android:textSize="16sp"
+                android:text="Total Active Event"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+<!--    <androidx.cardview.widget.CardView
+        android:id="@+id/card_supplier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/card_event"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/home_cardview"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@color/action_menu_text_color"
+        app:cardBackgroundColor="@color/action_menu_text_color">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/text_margin"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/setting_top">
+
+            <TextView
+                android:id="@+id/lbl_supplier"
+                style="@style/miduam_font_two"
+                android:textColor="@color/action_menu_text_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/home_text_top"
+                android:text="Suppliers"/>
+
+            <TextView
+                android:id="@+id/lbl_tsupplier"
+                style="@style/miduam_font_two"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/text_margin"
+                android:textColor="@color/action_menu_text_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+
+
+            <TextView
+                android:id="@+id/lbl_lsupplier"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_tsupplier"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:gravity="fill"
+                android:textSize="16sp"
+                android:text="Total Active Suppliers"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>-->
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/card_event"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/home_cardview"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@color/color_product"
+        app:cardBackgroundColor="@color/color_product">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/text_margin"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/setting_top">
+
+            <TextView
+                android:id="@+id/lbl_product"
+                style="@style/miduam_font_two"
+                android:textColor="@color/color_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:text="Product"/>
+
+            <TextView
+                android:id="@+id/lbl_tproduct"
+                style="@style/miduam_font_two"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:textColor="@color/color_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+
+
+            <TextView
+                android:id="@+id/lbl_eproduct"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_tproduct"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:gravity="fill"
+                android:textSize="16sp"
+                android:text="Total Active Product"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_stock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/card_product"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/home_cardview"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@color/color_stock"
+        app:cardBackgroundColor="@color/color_stock">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/text_margin"
+            android:background="@color/white"
+            android:layout_marginEnd="@dimen/setting_top">
+
+            <TextView
+                android:id="@+id/lbl_stock"
+                style="@style/miduam_font_two"
+                android:textColor="@color/color_stock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:text="Total Stock"/>
+
+            <TextView
+                android:id="@+id/lbl_tstock"
+                style="@style/miduam_font_two"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:textColor="@color/color_stock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+
+
+            <TextView
+                android:id="@+id/lbl_estock"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_tstock"
+                android:layout_marginStart="@dimen/home_text_side"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:gravity="fill"
+                android:textSize="16sp"
+                android:text="In Quantity"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

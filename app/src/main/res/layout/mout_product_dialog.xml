@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/text_margin"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/txt_remark"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="@dimen/margin_six_dp"
+        android:background="@drawable/round_edittext"
+        android:hint="Enter Remark"
+        android:padding="@dimen/margin_six_dp" />
+
+    <EditText
+        android:id="@+id/txt_received_qty"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="@dimen/margin_six_dp"
+        android:background="@drawable/round_edittext"
+        android:hint="Enter Received Qty"
+        android:inputType="number"
+        android:maxLength="4"
+        android:padding="@dimen/margin_six_dp" />
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background= "@drawable/button_black"
+        android:layout_margin="@dimen/text_margin"
+        style="@style/button_black_font"
+        android:text="update"
+        android:textSize="14sp"/>
+
+</LinearLayout>

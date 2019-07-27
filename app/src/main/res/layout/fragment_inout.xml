@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.InOutFragment">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/inout_tab"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:overScrollMode="never"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/action_menu_text_color"
+        app:tabIndicatorFullWidth="true"
+        app:tabSelectedTextColor="@color/action_menu_text_color"
+        app:tabTextColor="@color/action_menu_text_color" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/inout_viewpager"
+        android:layout_below="@+id/inout_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_six_dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</RelativeLayout>

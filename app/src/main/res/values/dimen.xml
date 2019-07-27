@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_logo_padding">88dp</dimen>
+    <dimen name="welcome_top_margin">101dp</dimen>
+    <dimen name="welcome_side_margin">32dp</dimen>
+    <dimen name="welcome_text_margin">22dp</dimen>
+    <dimen name="welcome_text">30sp</dimen>
+    <dimen name="regular_text">22sp</dimen>
+    <dimen name="login_side_margin">41dp</dimen>
+    <dimen name="login_option_margin">32dp</dimen>
+    <dimen name="verify_mobile_margin">15dp</dimen>
+    <dimen name="otp_width">40dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="home_item">27dp</dimen>
+    <dimen name="home_cardview">19dp</dimen>
+    <dimen name="home_text_side">14dp</dimen>
+    <dimen name="home_text_top">18dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="booking_card_side">32dp</dimen>
+    <dimen name="card__item_image">48dp</dimen>
+    <dimen name="card_text_top">11dp</dimen>
+    <dimen name="margin_six_dp">6dp</dimen>
+    <dimen name="top_margin">58dp</dimen>
+    <dimen name="setting_top">12dp</dimen>
+    <dimen name="schedule_time_margin">49dp</dimen>
+    <dimen name="schedule_time_top_margin">26dp</dimen>
+    <dimen name="cart_promo_margin">32dp</dimen>
+    <dimen name="cart_image_width">60dp</dimen>
+    <dimen name="cart_image_height">70dp</dimen>
+    <dimen name="textview_height">45dp</dimen>
+</resources>

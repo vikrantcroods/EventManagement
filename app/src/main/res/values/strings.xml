@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="company_name">Company Name</string>
+    <string name="short_name">Short Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="email">Email</string>
+    <string name="owner_name">Owner Name</string>
+    <string name="owner_mobile_number">Owner Mobile Number</string>
+    <string name="pan_no">Pan No</string>
+    <string name="concern_persone_name">Concern Persone Name</string>
+    <string name="concern_person_email">Concern Person Email</string>
+    <string name="address_line_1">Address Line 1</string>
+    <string name="address_line_2">Address Line 2</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="concern_person_mobile_no">Concern Person Mobile No</string>
+    <string name="create_customer">Create Customer</string>
+    <string name="hintSearchMess">search...</string>
+</resources>

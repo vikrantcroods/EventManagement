@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="@dimen/text_margin"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="2dp"
+    android:background="@color/action_menu_text_color"
+    app:cardBackgroundColor="@color/action_menu_text_color">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginEnd="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/lbl_recmaterial_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MOUT1"
+                style="@style/history_card_text"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/spurchaseseparator"
+                android:layout_below="@+id/lbl_recmaterial_no"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider" />
+
+            <TextView
+                android:id="@+id/lbl_recmaterial_jobcode"
+                android:layout_below="@id/spurchaseseparator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Vikrant Hirapara"
+                style="@style/history_card_text"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/lbl_recmaterial_date"
+                android:layout_below="@id/lbl_recmaterial_jobcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="05 Dec 2018"
+                style="@style/history_card_text"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/lbl_recquantity"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_recmaterial_date"
+                android:layout_marginTop="10dp"
+                android:gravity="fill"
+                android:text=" 5 Qty"
+                android:drawableStart="@drawable/ic_out"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/lbl_store"
+                style="@style/history_card_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_toEndOf="@+id/lbl_recquantity"
+                android:layout_below="@+id/lbl_recmaterial_date"
+                android:layout_marginTop="10dp"
+                android:gravity="fill"
+                android:text="Store A"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

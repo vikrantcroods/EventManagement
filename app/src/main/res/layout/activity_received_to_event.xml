@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ReceivedToEventActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_rtoe"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/action_menu_text_color"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_rtoe"
+            style="@style/miduam_font_two"
+            android:layout_width="wrap_content"
+            android:layout_height="?android:attr/actionBarSize"
+            android:gravity="start|fill_vertical"
+            android:text="Received Material to Event"
+            android:textColor="@color/white" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_rtoe" />
+
+    <TextView
+        android:id="@+id/txt_r"
+        style="@style/miduam_font_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:gravity="start|fill_vertical"
+        android:text="Select Event"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spn_mout_no"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="@dimen/text_margin"
+        android:background="@drawable/spinner_back"
+        app:layout_constraintTop_toBottomOf="@+id/txt_r">
+
+    </androidx.appcompat.widget.AppCompatSpinner>
+
+
+    <TextView
+        android:id="@+id/lbl_plist"
+        style="@style/miduam_font_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:gravity="start|fill_vertical"
+        android:text="Total Material"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spn_mout_no"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/layout_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_plist"
+        android:layout_margin="@dimen/text_margin">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/text_margin"
+            android:text="Name"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="totalQty"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:gravity="end"
+            android:layout_height="wrap_content"
+            android:text="receivedQty"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        android:layout_marginTop="@dimen/text_margin"
+        app:layout_constraintTop_toBottomOf="@+id/layout_heading"/>
+
+    <ListView
+        android:id="@+id/lst_mout_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        android:dividerHeight="1dp"
+        android:divider="@color/divider"
+        tools:listitem="@layout/materialout_event_product_row"
+        android:layout_margin="@dimen/text_margin">
+    </ListView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

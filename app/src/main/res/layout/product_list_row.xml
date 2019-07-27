@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_laptop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/home_cardview"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@color/divider"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/text_margin">
+
+            <ImageView
+                android:id="@+id/img_product"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/home_text_side"
+                android:foregroundGravity="center"
+                android:src="@drawable/noimage" />
+
+            <TextView
+                android:id="@+id/lbl_product_row"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/card_text_top"
+                android:gravity="fill"
+                android:text="raw"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/lbl_product_name"
+                style="@style/regular_font_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_text_top"
+                android:layout_marginEnd="@dimen/margin_six_dp"
+                android:layout_toStartOf="@+id/lbl_product_row"
+                android:layout_toEndOf="@+id/img_product"
+                android:singleLine="false"
+                android:text="VISA SUNBOARD"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lbl_product_displayName"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_product_name"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:layout_toEndOf="@+id/img_product"
+                android:gravity="fill"
+                android:singleLine="false"
+                android:text="VISA SUNBOARD 10x14.5"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/product_total_quantity"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_product_displayName"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/margin_six_dp"
+                android:layout_toEndOf="@+id/img_product"
+                android:gravity="fill"
+                android:text=" Total Qty :"
+                android:textSize="16sp"
+                android:textColor="@color/color_active_member"/>
+            <TextView
+                android:id="@+id/lbl_product_total_quantity"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_product_displayName"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:layout_toEndOf="@+id/product_total_quantity"
+                android:gravity="fill"
+                android:text="1 Qty"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/product_remain_quantity"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_product_total_quantity"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/margin_six_dp"
+                android:layout_toEndOf="@+id/img_product"
+                android:gravity="fill"
+                android:text=" Remain Qty : "
+                android:textSize="16sp"
+                android:textColor="@color/color_yellow"/>
+
+            <TextView
+                android:id="@+id/lbl_product_remain_quantity"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_product_total_quantity"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:layout_toEndOf="@+id/product_remain_quantity"
+                android:gravity="fill"
+                android:text=" 1 Qty"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/product_out_quantity"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_product_remain_quantity"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/margin_six_dp"
+                android:layout_toEndOf="@+id/img_product"
+                android:gravity="fill"
+                android:text=" Out Qty : "
+                android:textSize="16sp"
+                android:textColor="@color/color_light_blue"/>
+
+            <TextView
+                android:id="@+id/lbl_product_out_quantity"
+                style="@style/regular_font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_product_remain_quantity"
+                android:layout_marginTop="@dimen/margin_six_dp"
+                android:layout_marginEnd="@dimen/home_text_side"
+                android:layout_toEndOf="@+id/product_out_quantity"
+                android:gravity="fill"
+                android:text=" 1 Qty"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

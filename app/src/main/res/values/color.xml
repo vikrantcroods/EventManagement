@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#ffffff</color>
+    <color name="dark">#E6E6E6</color>
+    <color name="black">#000000</color>
+    <color name="edittext_background_color">#edebeb</color>
+    <color name="divider">#CECECE</color>
+    <color name="action_menu_text_color">#3E88FA</color>
+    <color name="color_regular_font">#808080</color>
+    <color name="status_font">#357724</color>
+    <color name="color_red">#FF1313</color>
+    <color name="color_reschedule_text">#254F97</color>
+    <color name="color_member_text">#00C6B2</color>
+    <color name="color_member_shape">#0094DC</color>
+    <color name="color_active_member">#64AF44</color>
+    <color name="color_promo_button">#0783FF</color>
+    <color name="color_yellow">#ffb822</color>
+    <color name="color_light_blue">#5194fa</color>
+    <color name="color_dark_textcolor">#a3a3a3</color>
+
+
+    <color name="color_customer">#f4516c</color>
+    <color name="color_product">#716aca</color>
+    <color name="color_stock">#34bfa3</color>
+</resources>

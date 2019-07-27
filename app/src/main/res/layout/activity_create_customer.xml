@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CreateCustomerActivity"
+    android:id="@+id/snack_cus">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_create_customer"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_create_customer"
+            style="@style/miduam_font_two"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:gravity="start|fill_vertical"
+            android:text="@string/create_customer"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_create_customer" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/top_margin"
+        app:layout_constraintTop_toBottomOf="@+id/line">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txt_companyname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/company_name"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/txt_shortname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/short_name"
+                android:inputType="textPersonName"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/txt_mono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/mobile_number"
+                android:inputType="number"
+                android:maxLength="10"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/txt_ownername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/owner_name"
+                android:inputType="textPersonName"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/txt_ownermono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/owner_mobile_number"
+                android:maxLength="10"
+                android:inputType="number"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/txt_panno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/pan_no"
+                android:padding="15dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/txt_concernpname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/concern_persone_name"
+                android:inputType="textPersonName"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/txt_concernpmono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/concern_person_mobile_no"
+                android:inputType="number"
+                android:maxLength="10"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/txt_concernpemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/concern_person_email"
+                android:inputType="textEmailAddress"
+                android:padding="15dp" />
+
+
+            <EditText
+                android:id="@+id/txt_companyname_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/company_name"
+                android:inputType="textPersonName"
+                android:padding="15dp" />
+
+            <EditText
+                android:id="@+id/txt_addr1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/address_line_1"
+                android:inputType="textMultiLine"
+                android:padding="15dp"
+                android:singleLine="false" />
+
+            <EditText
+                android:id="@+id/txt_addr2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/address_line_2"
+                android:inputType="textMultiLine"
+                android:padding="15dp"
+                android:singleLine="false" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spn_state"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/spinner_back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spn_city"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/spinner_back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/txt_postalcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/welcome_side_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/postal_code"
+                android:inputType="number"
+                android:maxLength="6"
+                android:padding="15dp" />
+
+            <Button
+                android:id="@+id/btn_customer_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/top_margin"
+                style="@style/button_black_font"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/welcome_side_margin"
+                android:background="@drawable/button_black"
+                android:text="Submit"
+                android:padding="15dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
