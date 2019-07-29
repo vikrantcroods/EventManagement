@@ -16,7 +16,6 @@
         android:background="@color/action_menu_text_color">
 
         <TextView
-            android:id="@+id/txt_create_customer"
             style="@style/miduam_font_two"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"

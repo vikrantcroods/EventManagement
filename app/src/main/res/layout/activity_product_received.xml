@@ -15,7 +15,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/txt_add_product"
             style="@style/miduam_font_two"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"

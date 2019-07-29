@@ -1,11 +1,8 @@
 <resources>
-    <string name="app_name">Prageu</string>
 
     <string name="mobile_no">UserName</string>
     <string name="password">Password</string>
     <string name="login_now">Sign In</string>
-
-    <string name="title_activity_dash_board">DashBoardActivity</string>
 
 
     <string name="title_home">Home</string>
@@ -15,11 +12,6 @@
     <string name="title_product">Products</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
-    <string name="ok">ok</string>
-    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
-    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="active">Active</string>
     <string name="inactive">Inactive</string>
     <string name="all">All</string>

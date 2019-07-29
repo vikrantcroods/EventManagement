@@ -30,7 +30,6 @@
             android:layout_marginEnd="@dimen/setting_top">
 
             <TextView
-                android:id="@+id/lbl_customer"
                 style="@style/miduam_font_two"
                 android:textColor="@color/color_customer"
                 android:layout_width="wrap_content"
@@ -150,7 +149,6 @@
             android:layout_marginEnd="@dimen/setting_top">
 
             <TextView
-                android:id="@+id/lbl_product"
                 style="@style/miduam_font_two"
                 android:textColor="@color/color_product"
                 android:layout_width="wrap_content"
@@ -172,7 +170,6 @@
 
 
             <TextView
-                android:id="@+id/lbl_eproduct"
                 style="@style/regular_font"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -192,7 +189,6 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_stock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/card_product"
@@ -211,7 +207,6 @@
             android:layout_marginEnd="@dimen/setting_top">
 
             <TextView
-                android:id="@+id/lbl_stock"
                 style="@style/miduam_font_two"
                 android:textColor="@color/color_stock"
                 android:layout_width="wrap_content"
@@ -233,7 +228,6 @@
 
 
             <TextView
-                android:id="@+id/lbl_estock"
                 style="@style/regular_font"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

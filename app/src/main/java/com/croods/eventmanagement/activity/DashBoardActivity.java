@@ -120,6 +120,7 @@ public class DashBoardActivity extends AppCompatActivity implements CustomerFrag
                 mTextMessage.setText(R.string.title_inout);
                 loadFragment(new InOutFragment());
                 break;
+
             case 4:
                 navView.getMenu().findItem(R.id.navigation_events).setChecked(true);
                 mTextMessage.setText(R.string.title_event);
