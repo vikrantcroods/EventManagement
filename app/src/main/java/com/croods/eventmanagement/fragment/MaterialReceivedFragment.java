@@ -4,12 +4,15 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.croods.eventmanagement.R;
@@ -57,8 +60,15 @@ public class MaterialReceivedFragment extends Fragment {
     @BindView(R.id.lst_material_received)
     ListView lst_material_received;
 
+    @BindView(R.id.spn_rec_event)
+    AppCompatSpinner spn_rec_event;
+
+
+
     private List<MaterialReceivedListResponse> materialReceivedList;
     private MaterialReceivedListAdapter adapter;
+
+    private List<String> eventList;
 
     private APIInterface apiInterface;
 
@@ -109,12 +119,26 @@ public class MaterialReceivedFragment extends Fragment {
         progressHUD.show();
         handler.postDelayed(() ->  getAllMaterialSendList(tokenType+" "+token), 2000);
 
+        spn_rec_event.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                adapter.filter(eventList.get(i));
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         return root;
     }
 
     private void getAllMaterialSendList(String auth)
     {
         materialReceivedList = new ArrayList<>();
+        eventList = new ArrayList<>();
         progressHUD.dismiss();
         apiInterface.getMaterialReceivedList(auth).enqueue(new Callback<List<MaterialReceivedListResponse>>() {
             @Override
@@ -125,6 +149,18 @@ public class MaterialReceivedFragment extends Fragment {
                     materialReceivedList = response.body();
                     adapter = new MaterialReceivedListAdapter(materialReceivedList,ctx);
                     lst_material_received.setAdapter(adapter);
+
+                    for (MaterialReceivedListResponse listResponse :  materialReceivedList)
+                    {
+                        if (!eventList.contains(listResponse.getJobCode()))
+                            eventList.add(listResponse.getJobCode());
+                    }
+
+                    ArrayAdapter adapter = new ArrayAdapter(ctx, android.R.layout.simple_spinner_item, eventList);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    spn_rec_event.setAdapter(adapter);
+
                 }
                 else
                 {

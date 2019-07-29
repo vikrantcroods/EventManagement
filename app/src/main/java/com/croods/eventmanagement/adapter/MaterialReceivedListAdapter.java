@@ -9,11 +9,14 @@ import android.widget.TextView;
 
 import com.croods.eventmanagement.R;
 import com.croods.eventmanagement.model.MaterialReceivedListResponse;
+import com.croods.eventmanagement.model.MaterialSendListResponse;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MaterialReceivedListAdapter extends BaseAdapter {
-    private List<MaterialReceivedListResponse> materialReceivedList;
+    private List<MaterialReceivedListResponse> materialReceivedList,arraylist;
     private Context ctx;
     private LayoutInflater inflater = null;
 
@@ -22,6 +25,8 @@ public class MaterialReceivedListAdapter extends BaseAdapter {
         this.ctx = ctx;
         inflater = (LayoutInflater) ctx
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        arraylist = new ArrayList<>();
+        arraylist.addAll(materialReceivedList);
     }
 
     @Override
@@ -65,6 +70,27 @@ public class MaterialReceivedListAdapter extends BaseAdapter {
         holder.lbl_store.setText(response.getStoreVo().getStoreName());
         holder.lbl_recquantity.setText(" " +response.getInquantity()+" Qty");
         return view;
+    }
+
+
+    // Filter Class
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        materialReceivedList.clear();
+        if (charText.length() == 0) {
+            materialReceivedList.addAll(arraylist);
+        }
+        else
+        {
+            for (MaterialReceivedListResponse wp : arraylist)
+            {
+                if (wp.getJobCode().toLowerCase(Locale.getDefault()).contains(charText))
+                {
+                    materialReceivedList.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     private class ViewHolder {

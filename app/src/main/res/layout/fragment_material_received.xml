@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.MaterialReceivedFragment">
 
+    <TextView
+        android:id="@+id/txt_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select JobCode"
+        style="@style/regular_font_home"
+        android:textColor="@color/action_menu_text_color"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginEnd="@dimen/text_margin"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spn_rec_event"
+        android:layout_below="@+id/txt_label"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="@dimen/text_margin"
+        android:background="@drawable/spinner_back" />
+
     <ListView
         android:id="@+id/lst_material_received"
+        android:layout_below="@+id/spn_rec_event"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/home_cardview"
+        android:layout_marginTop="@dimen/setting_top"
         android:divider="@android:color/transparent"
         android:dividerHeight="10dp"
         android:scrollbars="none"
@@ -19,4 +39,4 @@
         android:layout_marginEnd="@dimen/card_text_top"
         />
 
-</FrameLayout>
+</RelativeLayout>

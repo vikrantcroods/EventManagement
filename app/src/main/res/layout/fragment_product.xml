@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ProductFragment">
 
-
     <ListView
         android:id="@+id/lst_product"
         android:layout_width="match_parent"
