@@ -1,21 +1,35 @@
 package com.croods.eventmanagement.fragment;
 
+import android.app.Activity;
+import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.croods.eventmanagement.R;
 import com.croods.eventmanagement.activity.ActiveEventActivity;
 import com.croods.eventmanagement.activity.DashBoardActivity;
+import com.croods.eventmanagement.activity.MainActivity;
 import com.croods.eventmanagement.api.APIInterface;
 import com.croods.eventmanagement.api.Common;
 import com.croods.eventmanagement.api.DataStorage;
@@ -85,6 +99,7 @@ public class DashBoardFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -174,5 +189,40 @@ public class DashBoardFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.logout_menu, menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.img_logout) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctx);
+            alertDialogBuilder.setMessage("Are you sure You want to logout");
+            alertDialogBuilder.setPositiveButton("yes",
+                    (arg0, arg1) -> {
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+                        alertDialog.show();
+
+                        storage.write("token", "");
+                        storage.write("tokenType", "");
+                        storage.write("isfirst", "true");
+                        Intent i = new Intent(ctx, MainActivity.class);
+                        startActivity(i);
+                        ((Activity) ctx).finish();
+                    });
+
+            alertDialogBuilder.setNegativeButton("No", null);
+            alertDialogBuilder.show();
+
+
+            // Not implemented here
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

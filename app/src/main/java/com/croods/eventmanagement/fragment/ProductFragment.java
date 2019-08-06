@@ -187,7 +187,6 @@ public class ProductFragment extends Fragment {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     Log.i("onQueryTextSubmit", query);
-
                     return true;
                 }
             };

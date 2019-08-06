@@ -133,7 +133,6 @@ public class ProductListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-
     private class ViewHolder {
         TextView lbl_product_name,lbl_product_row,lbl_product_displayName,lbl_product_quantity,lbl_product_total_quantity,lbl_product_out_quantity;
         ImageView img_product;
